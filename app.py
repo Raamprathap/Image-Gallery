@@ -1,12 +1,13 @@
 from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
 import os
+from urllib.parse import quote
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Replace with the path to your local image folder
-IMAGE_FOLDER = 'image'
+IMAGE_FOLDER = r'C:\Users\raamp\OneDrive\Desktop\Hello World\Photography Website\image'
 
 @app.route('/get-images', methods=['GET'])
 def get_images():
@@ -15,7 +16,8 @@ def get_images():
         image_filenames = []
         for filename in os.listdir(IMAGE_FOLDER):
             if filename.endswith(('.png', '.jpg', '.jpeg', '.gif')):  # Add more image formats if needed
-                image_filenames.append({"id": filename, "name": filename})
+                image_url = f'/images/{quote(filename)}'  # Use /images/ and URL encode the filename
+                image_filenames.append({"id": filename, "name": filename, "url": image_url})
         return jsonify(image_filenames)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -37,6 +39,4 @@ def add_cors_headers(response):
     return response
 
 if __name__ == '__main__':
-    # Use the PORT environment variable provided by Render or default to 5000
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(debug=True)
