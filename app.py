@@ -9,6 +9,10 @@ CORS(app)  # Enable CORS for all routes
 # Replace with the path to your local image folder
 IMAGE_FOLDER = r'image'
 
+@app.route('/')
+def index():
+    return render_template('gallery.html')  # Serve the gallery.html file
+
 @app.route('/get-images', methods=['GET'])
 def get_images():
     try:
@@ -39,4 +43,4 @@ def add_cors_headers(response):
     return response
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
