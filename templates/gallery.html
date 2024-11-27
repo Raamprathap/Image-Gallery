@@ -273,15 +273,20 @@
     </div>
     
     <script>
-        fetch('http://127.0.0.1:5000/get-images')
-        .then(response => response.json())
+        fetch('https://sample-5fl6.onrender.com/images')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(imageFilenames => {
             const gallery = document.querySelector(".gallery");
 
             // Dynamically create and append img elements to the gallery
             imageFilenames.forEach(filename => {
                 const img = document.createElement('img');
-                img.src = `http://127.0.0.1:5000/images/${filename.id}`; // Update the image source to the new endpoint
+                img.src = `https://sample-5fl6.onrender.com/images/${filename.id}`; // Update the image source to the new endpoint
                 img.alt = filename.name; // Optional: Set alt text for accessibility
                 gallery.appendChild(img); // Append the img element to the gallery
             });
