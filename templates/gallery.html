@@ -282,18 +282,18 @@
         })
         .then(imageFilenames => {
             const gallery = document.querySelector(".gallery");
-
+        
             // Dynamically create and append img elements to the gallery
             imageFilenames.forEach(filename => {
                 const img = document.createElement('img');
-                img.src = `image/${filename.id}`; // Update the image source to the new endpoint
+                img.src = `https://sample-5fl6.onrender.com/images/${filename.id}`; // Corrected path
                 img.alt = filename.name; // Optional: Set alt text for accessibility
                 gallery.appendChild(img); // Append the img element to the gallery
             });
-
+        
             // Select all image elements for grayscale effect
             const images = document.querySelectorAll('.gallery img');
-
+        
             // Add event listeners to each image
             images.forEach((image) => {
                 image.addEventListener('mouseover', () => {
@@ -303,7 +303,7 @@
                         }
                     });
                 });
-
+        
                 image.addEventListener('mouseout', () => {
                     images.forEach((img) => {
                         img.classList.remove('grayscale'); // Remove grayscale from all images
