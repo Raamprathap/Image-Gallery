@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Replace with the path to your local image folder
-IMAGE_FOLDER = r'C:\Users\raamp\OneDrive\Desktop\Hello World\Photography Website\image'
+IMAGE_FOLDER = 'image'
 
 @app.route('/get-images', methods=['GET'])
 def get_images():
@@ -37,4 +37,6 @@ def add_cors_headers(response):
     return response
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Use the PORT environment variable provided by Render or default to 5000
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
