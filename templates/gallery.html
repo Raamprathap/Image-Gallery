@@ -273,7 +273,7 @@
     </div>
     
     <script>
-        fetch('https://sample-5fl6.onrender.com/images')
+        fetch('https://sample-5fl6.onrender.com/get-images')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -286,7 +286,7 @@
             // Dynamically create and append img elements to the gallery
             imageFilenames.forEach(filename => {
                 const img = document.createElement('img');
-                img.src = `https://sample-5fl6.onrender.com/images/${filename.id}`; // Update the image source to the new endpoint
+                img.src = `https://sample-5fl6.onrender.com/get-images/${filename.id}`; // Update the image source to the new endpoint
                 img.alt = filename.name; // Optional: Set alt text for accessibility
                 gallery.appendChild(img); // Append the img element to the gallery
             });
