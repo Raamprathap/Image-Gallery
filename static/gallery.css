@@ -254,15 +254,15 @@ nav{
 }
 
 .gallery {
-    --s: 290px; /* control the size */
+    --s: 390px; /* control the size */
     --g: 10px;  /* control the gap */
     --f: 1.5;   /* control the scale factor */
     
     display: grid;
     gap: var(--g);
-    width: calc(5*var(--s) + 2*var(--g));
+    width: calc(4*var(--s) + 2*var(--g));
     aspect-ratio: 2;
-    grid-template-columns: repeat(5,auto);
+    grid-template-columns: repeat(4,auto);
     margin-top: 100px;
 }
   
