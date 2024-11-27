@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Replace with the path to your local image folder
-IMAGE_FOLDER = r'C:\Users\raamp\OneDrive\Desktop\Hello World\Photography Website\image'
+IMAGE_FOLDER = r'image'
 
 @app.route('/get-images', methods=['GET'])
 def get_images():
