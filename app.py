@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Replace with the path to your local image folder
-IMAGE_FOLDER = r'image'
+IMAGE_FOLDER = r'gal_image'
 
 @app.route('/')
 def index():
