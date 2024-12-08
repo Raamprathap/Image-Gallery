@@ -19,7 +19,7 @@ def get_images():
         # List all files in the image folder
         image_filenames = []
         for filename in os.listdir(IMAGE_FOLDER):
-            if filename.endswith(('.png', '.jpg', '.jpeg', '.gif')):  # Add more image formats if needed
+            if filename.endswith(('.png', '.jpg', '.jpeg', '.gif', '.webp')):  # Add more image formats if needed
                 image_url = f'/images/{quote(filename)}'  # Use /images/ and URL encode the filename
                 image_filenames.append({"id": filename, "name": filename, "url": image_url})
         return jsonify(image_filenames)
